@@ -28,10 +28,11 @@ import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 
+import timber.log.Timber;
+
 class Emojifier {
 
     // TODO (3): Change all Log statements to Timber logs and remove the LOG_TAG variable
-    private static final String LOG_TAG = Emojifier.class.getSimpleName();
 
     private static final float EMOJI_SCALE_FACTOR = .9f;
     private static final double SMILING_PROB_THRESHOLD = .15;
@@ -59,7 +60,7 @@ class Emojifier {
         SparseArray<Face> faces = detector.detect(frame);
 
         // Log the number of faces
-        Log.d(LOG_TAG, "detectFaces: number of faces = " + faces.size());
+        Timber.d("detectFaces: number of faces = " + faces.size());
 
         // Initialize result bitmap to original picture
         Bitmap resultBitmap = picture;
